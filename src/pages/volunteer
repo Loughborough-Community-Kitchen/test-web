@@ -1,0 +1,28 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<h2>Volunteer with us: </h2>
+      <p>Want to get involved? Here are some of the ways you can help support our mission:</p>
+			<p>
+				Some more text here
+			</p>
+
+			<p>
+				We look forward to seeing or hearing from you one day!
+			</p>
+		</main>
+		<Footer />
+	</body>
+</html>
