@@ -1,0 +1,50 @@
+---
+const images = [
+  { src: "/images/slide1.jpg", alt: "Community event" },
+  { src: "/images/slide2.jpg", alt: "Training session" },
+  { src: "/images/slide3.jpg", alt: "Club competition" },
+];
+---
+
+<div class="slider" data-slider>
+  <div class="slides">
+    {images.map((img) => (
+      <img src={img.src} alt={img.alt} loading="lazy" />
+    ))}
+  </div>
+</div>
+
+<style>
+.slider {
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.slides {
+  display: flex;
+  transition: transform 0.6s ease-in-out;
+}
+
+.slides img {
+  width: 100%;
+  flex-shrink: 0;
+  object-fit: cover;
+}
+</style>
+
+<script>
+  const slider = document.currentScript
+    .closest("[data-slider]")
+    .querySelector(".slides");
+
+  const slides = slider.children;
+  let index = 0;
+
+  setInterval(() => {
+    index = (index + 1) % slides.length;
+    slider.style.transform = `translateX(-${index * 100}%)`;
+  }, 4000);
+</script>
