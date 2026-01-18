@@ -1,13 +1,21 @@
 ---
 import Layout from '../layouts/BlogPost.astro';
+import ImageSlider from "@/components/ImageSlider.astro";
+
 ---
 
 <Layout
 	title="About Loughborough Community Kitchen"
 	description="Change me"
 	pubDate={new Date('August 08 2021')}
-	heroImage="7fd0dfc6-fb6d-475e-a018-dc52ec6b1b3f.jpg"
 >
+<ImageSlider
+  images={[
+    { src: "/images/volunteers1.jpg", alt: "Event 1" },
+    { src: "/images/volunteers2.jpg", alt: "Event 2" },
+    { src: "/images/volunteers3.jpg", alt: "Event 3" },
+  ]}
+/>
 	<p>
 Loughborough Community Kitchen exists to provide freshly cooked, nutritious meals in a welcoming and inclusive space for people in need across our community. 
 We believe everyone deserves dignity, warmth and a good meal, regardless of their personal circumstances. With the support of our dedicated volunteers and local supporters, we currently provide a monthly community meal.
