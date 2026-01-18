@@ -11,9 +11,10 @@ export async function POST({ request, locals }) {
   const message = formData.get("message");
 
   if (!name || !email || !message) {
-    return new Response("Bad request", { status: 400 });
+    return new Response("Missing fields", { status: 400 });
   }
 
+  // Send email via Resend
   const res = await fetch("https://api.resend.com/emails", {
     method: "POST",
     headers: {
@@ -28,7 +29,7 @@ export async function POST({ request, locals }) {
       html: `
         <p><strong>Name:</strong> ${name}</p>
         <p><strong>Email:</strong> ${email}</p>
-        <p>${message}</p>
+        <p>${message.replace(/\n/g, "<br>")}</p>
       `,
     }),
   });
