@@ -16,13 +16,24 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 			<h2>Volunteer with us: </h2>
       <p>Want to get involved? Here are some of the ways you can help support our mission:</p>
 
-		<form method="POST" action="/api/contact">
-		<input type="text" name="name" placeholder="Name" required />
-		<input type="email" name="email" placeholder="Email" required />
-		<textarea name="message" placeholder="Message" required></textarea>
+<form method="POST" action="/api/contact">
+  <input type="text" name="name" placeholder="Name" required />
+  <input type="email" name="email" placeholder="Email" required />
+
+  <!-- 🕵️ Honeypot field (bots fill this, humans don't) -->
+  <input
+    type="text"
+    name="company"
+    tabindex="-1"
+    autocomplete="off"
+    style="display:none"
+  />
+
+  <textarea name="message" placeholder="Message" required></textarea>
 
   <button type="submit">Send</button>
 </form>
+
 
 
 			<p>
