@@ -21,8 +21,8 @@ export async function POST({ request, locals }) {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      from: "Website <contact@example.com>",
-      to: ["secretary@example.com"],
+      from: "Website <contact@loughboroughcommunitykitchen.org.uk>",
+      to: ["communitykitchenlboro@outlook.com"],
       reply_to: email,
       subject: "New website form submission",
       html: `
