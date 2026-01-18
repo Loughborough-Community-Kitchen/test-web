@@ -49,30 +49,25 @@ main {
   margin: auto;
   padding: 3em 1em;
 }
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  margin: 0 0 0.5rem 0;
-  color: rgb(var(--black));
-  line-height: 1.2;
-}
 h1 {
-  font-size: 3.052em;
+  font-size: clamp(2rem, 5vw, 3rem);
 }
 h2 {
-  font-size: 2.441em;
+  font-size: clamp(1.4rem, 3vw, 2.2rem);
 }
 h3 {
-  font-size: 1.953em;
+  font-size: clamp(1.2rem, 2.5vw, 1.8rem);
 }
 h4 {
   font-size: 1.563em;
 }
 h5 {
   font-size: 1.25em;
+}
+h6 {
+  margin: 0 0 0.5rem 0;
+  color: rgb(var(--black));
+  line-height: 1.2;
 }
 strong,
 b {
@@ -86,6 +81,7 @@ a:hover {
 }
 p {
   margin-bottom: 1em;
+  font-size: clamp(1rem, 2.2vw, 1.125rem);
 }
 .prose p {
   margin-bottom: 2em;
