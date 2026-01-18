@@ -1,11 +1,6 @@
 ---
-const images = [
-  { src: "/images/slide1.jpg", alt: "Community event" },
-  { src: "/images/slide2.jpg", alt: "Training session" },
-  { src: "/images/slide3.jpg", alt: "Club competition" },
-];
+const { images } = Astro.props;
 ---
-
 <div class="slider" data-slider>
   <div class="slides">
     {images.map((img) => (
@@ -36,15 +31,30 @@ const images = [
 </style>
 
 <script>
-  const slider = document.currentScript
-    .closest("[data-slider]")
-    .querySelector(".slides");
+  const sliderRoot = document.currentScript.closest("[data-slider]");
+  const slidesTrack = sliderRoot.querySelector(".slides");
+  const slides = slidesTrack.children;
 
-  const slides = slider.children;
   let index = 0;
+  let interval;
 
-  setInterval(() => {
+  function nextSlide() {
     index = (index + 1) % slides.length;
-    slider.style.transform = `translateX(-${index * 100}%)`;
-  }, 4000);
+    slidesTrack.style.transform = `translateX(-${index * 100}%)`;
+  }
+
+  function startAutoPlay() {
+    interval = setInterval(nextSlide, 4000);
+  }
+
+  function stopAutoPlay() {
+    clearInterval(interval);
+  }
+
+  startAutoPlay();
+
+  // Pause on hover (desktop)
+  sliderRoot.addEventListener("mouseenter", stopAutoPlay);
+  sliderRoot.addEventListener("mouseleave", startAutoPlay);
 </script>
+
