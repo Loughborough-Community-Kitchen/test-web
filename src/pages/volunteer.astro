@@ -20,19 +20,13 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
   <input type="text" name="name" placeholder="Name" required />
   <input type="email" name="email" placeholder="Email" required />
 
-  <!-- 🕵️ Honeypot field (bots fill this, humans don't) -->
-  <input
-    type="text"
-    name="company"
-    tabindex="-1"
-    autocomplete="off"
-    style="display:none"
-  />
+  <!-- Honeypot -->
+  <input type="text" name="company" tabindex="-1" autocomplete="off" style="display:none" />
 
   <textarea name="message" placeholder="Message" required></textarea>
-
   <button type="submit">Send</button>
 </form>
+
 
 
 
