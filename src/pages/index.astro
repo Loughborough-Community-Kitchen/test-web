@@ -5,25 +5,26 @@ import Footer from '../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 import Card from "../components/Card.astro";
 import CardGrid from "../components/CardGrid.astro";
+import HeroBanner from "../components/HeroBanner.astro";
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+<HeroBanner
+  title="Good Food. Warm Welcome. Community First."
+  subtitle="We provide welcoming community meals in Loughborough for anyone who needs one — no questions asked."
+  primaryCtaText="When & Where"
+  primaryCtaLink="#when-where"
+  secondaryCtaText="Volunteer With Us"
+  secondaryCtaLink="/volunteer"
+/>
 	</head>
+
 	<body>
 		<Header />
 		<main>
-			<section class="hero">
-			  <h1>Good Food. Warm Welcome. Community First.</h1>
-			  <p>We provide free or low-cost hot meals to anyone in need — no questions asked.</p>
-			  <div class="actions">
-			    <a href="#when-where" class="btn primary">See When We’re Next Serving</a>
-			    <a href="/volunteer" class="btn secondary">Volunteer With Us</a>
-			  </div>
-			</section>
-
 			<section class="features">
  				<h2>How You Can Get Involved</h2>
 
