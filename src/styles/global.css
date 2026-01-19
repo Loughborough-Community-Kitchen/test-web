@@ -40,7 +40,7 @@ body {
   background-color: #1f2937;
   word-wrap: break-word;
   overflow-wrap: break-word;
-  color: rgb(var(--gray-dark));
+  color: #ffffff;
   font-size: 20px;
   line-height: 1.7;
 }
