@@ -23,9 +23,30 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 			</section>
 
 			<section class="features">
-			  <Card title="Community Meals" href="/meals" />
-			  <Card title="Volunteer" href="/volunteer" />
-			  <Card title="Donate / Sponsor" href="/donate" />
+ 				<h2>How You Can Get Involved</h2>
+
+			  <CardGrid>
+			    <Card
+			      title="Community Meals"
+			      description="Free, welcoming meals for anyone who needs one."
+			      href="/meals"
+			      icon="🍽️"
+			    />
+			
+			    <Card
+			      title="Volunteer"
+			      description="Help cook, serve, or support behind the scenes."
+			      href="/volunteer"
+			      icon="🤝"
+			    />
+			
+			    <Card
+			      title="Donate or Sponsor"
+			      description="Support our work and help us serve more meals."
+			      href="/donate"
+			      icon="❤️"
+			    />
+			  </CardGrid>
 			</section>
 			
 			  <section id="about">
@@ -35,15 +56,6 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 			      Our aim is simple: good food, friendly faces, and a warm welcome—no questions asked.
 			    </p>
 			  </section>
-
-
-				<section id="faq">
-				  <h2>Frequently Asked Questions</h2>
-				  <Accordion question="Do I need to book a meal?">
-				    <p>No — just turn up. All are welcome.</p>
-				  </Accordion>
-				  <!-- more items -->
-				</section>
 
 
 			<section class="cta-strip">
