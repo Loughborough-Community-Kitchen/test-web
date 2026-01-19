@@ -1,12 +1,24 @@
-<section class="card-grid">
-  <slot />
+---
+const { children } = Astro.props;
+---
+
+<section class="card-section">
+  <div class="card-grid">
+    <slot />
+  </div>
 </section>
 
 <style>
+  .card-section {
+    padding: 3rem 1.5rem;
+  }
+
   .card-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 1.5rem;
+    gap: 1.75rem;
+    max-width: 1100px;
+    margin: 0 auto;
   }
 
   @media (min-width: 768px) {
@@ -15,4 +27,3 @@
     }
   }
 </style>
-
