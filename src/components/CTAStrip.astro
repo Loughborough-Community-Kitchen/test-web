@@ -1,0 +1,31 @@
+---
+const { children } = Astro.props;
+---
+
+<section class="cta-strip">
+  <div class="cta-container">
+    <slot />
+  </div>
+</section>
+
+<style>
+.cta-strip {
+  background-color: #fefce8; /* light accent color, can be customized */
+  padding: 2rem 1rem;
+}
+
+.cta-container {
+  display: flex;
+  flex-direction: column; /* mobile: stacked */
+  gap: 1rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .cta-container {
+    flex-direction: row; /* desktop: inline */
+    justify-content: center;
+  }
+}
+</style>
