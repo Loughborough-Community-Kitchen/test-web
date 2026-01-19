@@ -1,0 +1,21 @@
+---
+const { children } = Astro.props;
+---
+
+<section class="card-grid">
+  {children}
+</section>
+
+<style>
+  .card-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* mobile */
+    gap: 1.25rem;
+  }
+
+  @media (min-width: 768px) {
+    .card-grid {
+      grid-template-columns: repeat(3, 1fr); /* desktop */
+    }
+  }
+</style>
