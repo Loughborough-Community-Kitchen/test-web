@@ -7,6 +7,8 @@ import Card from "../components/Card.astro";
 import CardGrid from "../components/CardGrid.astro";
 import HeroBanner from "../components/HeroBanner.astro";
 import FAQ from "../components/FAQ.astro";
+import CTAButton from "../components/CTAButton.astro";
+import CTAStrip from "../components/CTAStrip.astro";
 ---
 
 <!doctype html>
@@ -88,10 +90,11 @@ import FAQ from "../components/FAQ.astro";
 			  </section>
 
 
-			<section class="cta-strip">
-			  <a href="/volunteer" class="btn big primary">Volunteer Today</a>
-			  <a href="/donate" class="btn big secondary">Donate / Sponsor</a>
-			</section>
+<CTAStrip>
+  <CTAButton text="Volunteer Today" href="/volunteer" variant="primary" />
+  <CTAButton text="Donate / Sponsor" href="/donate" variant="secondary" />
+</CTAStrip>
+
 
 			
 			  <section id="when-where">
