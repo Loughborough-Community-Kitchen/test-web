@@ -1,0 +1,87 @@
+---
+interface Props {
+  question: string;
+  answer: string;
+}
+
+const { question, answer } = Astro.props;
+---
+
+<div class="faq-item">
+  <input type="checkbox" id={question} class="faq-toggle" />
+  <label for={question} class="faq-question">
+    {question}
+    <span class="arrow">▼</span>
+  </label>
+  <div class="faq-answer">
+    <p>{answer}</p>
+  </div>
+</div>
+
+<style>
+/* FAQ container */
+.faq-item {
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  overflow: hidden;
+  background: #fff;
+}
+
+/* Hide the checkbox */
+.faq-toggle {
+  display: none;
+}
+
+/* Question styling */
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  padding: 1rem 1.5rem;
+  font-weight: 600;
+  font-size: 1.125rem;
+  background-color: #f9fafb;
+  user-select: none;
+}
+
+/* Rotate arrow when open */
+.faq-toggle:checked + .faq-question .arrow {
+  transform: rotate(180deg);
+}
+
+/* Answer panel */
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  padding: 0 1.5rem;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+}
+
+/* Show answer when checkbox is checked */
+.faq-toggle:checked ~ .faq-answer {
+  max-height: 500px; /* large enough for content */
+  padding: 1rem 1.5rem;
+}
+
+.faq-answer p {
+  margin: 0;
+  line-height: 1.6;
+  color: #4b5563;
+}
+
+/* Arrow style */
+.arrow {
+  transition: transform 0.3s ease;
+  font-size: 1rem;
+  color: #6b7280;
+}
+.faq-section {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+
+</style>
