@@ -16,5 +16,6 @@ export default defineConfig({
     platformProxy: {
       enabled: true,
     },
+    mode: "pages",
   }),
 });
