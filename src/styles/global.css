@@ -35,7 +35,6 @@ body {
   margin: 0;
   padding: 0;
   text-align: left;
-  background: linear-gradient(var(--gray-gradient)) no-repeat;
   background-size: 100% 600px;
   background-color: #1f2937;
   word-wrap: break-word;
@@ -150,3 +149,10 @@ hr {
   /* added line to stop words getting smushed together (as they go onto separate lines and some screen readers do not understand line feeds as a space */
   white-space: nowrap;
 }
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+

@@ -6,6 +6,9 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 import Card from "../components/Card.astro";
 import CardGrid from "../components/CardGrid.astro";
 import HeroBanner from "../components/HeroBanner.astro";
+import FAQ from "../components/FAQ.astro";
+import CTAButton from "../components/CTAButton.astro";
+import CTAStrip from "../components/CTAStrip.astro";
 ---
 
 <!doctype html>
@@ -51,6 +54,32 @@ import HeroBanner from "../components/HeroBanner.astro";
 			    />
 			  </CardGrid>
 			</section>
+
+
+<section id="faq" class="faq-section">
+  <h2>Frequently Asked Questions</h2>
+
+  <FAQ 
+    question="Do I need to book a meal?"
+    answer="No — just turn up. All are welcome, whatever your circumstances."
+  />
+
+  <FAQ
+    question="Can families come?"
+    answer="Yes! We welcome families, and children under 12 eat for free."
+  />
+
+  <FAQ
+    question="How do I volunteer?"
+    answer="Fill out our volunteer form and we'll contact you with next steps."
+  />
+
+  <FAQ
+    question="Is it free?"
+    answer="Yes. All meals are free for anyone in need, no questions asked."
+  />
+</section>
+
 			
 			  <section id="about">
 			    <h2>Welcome</h2>
@@ -61,10 +90,11 @@ import HeroBanner from "../components/HeroBanner.astro";
 			  </section>
 
 
-			<section class="cta-strip">
-			  <a href="/volunteer" class="btn big primary">Volunteer Today</a>
-			  <a href="/donate" class="btn big secondary">Donate / Sponsor</a>
-			</section>
+<CTAStrip>
+  <CTAButton text="Volunteer Today" href="/volunteer" variant="primary" />
+  <CTAButton text="Donate / Sponsor" href="/donate" variant="secondary" />
+</CTAStrip>
+
 
 			
 			  <section id="when-where">
