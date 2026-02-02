@@ -63,8 +63,12 @@ const {
   min-height: 420px;
   overflow: hidden;
   color: white;
-  background-color: #14532d; /* fallback if image fails */
+  background-color: #14532d;
+
+  display: flex;
+  align-items: flex-end; /* push content lower */
 }
+
 
 /* ---------- BACKGROUND IMAGE ---------- */
 .hero-image {
@@ -94,7 +98,7 @@ const {
   z-index: 2;
   max-width: 1100px;
   margin: 0 auto;
-  padding: 4rem 1.5rem;
+  padding: 3rem 1.5rem 4.5rem; /* heavier bottom padding */
   text-align: center;
 }
 
@@ -116,6 +120,7 @@ h1 {
   flex-direction: column; /* mobile stack */
   gap: 1rem;
   align-items: center;
+  padding-bottom: 0.5rem;
 }
 
 .btn {
@@ -162,6 +167,12 @@ h1 {
   .hero-actions {
     flex-direction: row;
     justify-content: center;
+  }
+
+  .btn {
+    min-width: unset;
+    width: 100%;
+    max-width: 280px;
   }
 }
 </style>
