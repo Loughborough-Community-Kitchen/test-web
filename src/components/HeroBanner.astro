@@ -6,6 +6,10 @@ interface Props {
   primaryCtaLink: string;
   secondaryCtaText?: string;
   secondaryCtaLink?: string;
+
+  /* NEW (optional) */
+  imageSrc?: string;
+  imageAlt?: string;
 }
 
 const {
@@ -14,11 +18,24 @@ const {
   primaryCtaText,
   primaryCtaLink,
   secondaryCtaText,
-  secondaryCtaLink
+  secondaryCtaLink,
+  imageSrc,
+  imageAlt
 } = Astro.props;
 ---
 
 <section class="hero">
+  {imageSrc && (
+    <img
+      src={imageSrc}
+      alt={imageAlt ?? ""}
+      class="hero-image"
+      loading="eager"
+    />
+  )}
+
+  <div class="hero-overlay"></div>
+
   <div class="hero-inner">
     <h1>{title}</h1>
 
@@ -39,69 +56,123 @@ const {
 </section>
 
 <style>
+/* ---------- HERO WRAPPER ---------- */
+.hero {
+  position: relative;
+  height: 70vh;
+  min-height: 420px;
+  overflow: hidden;
+  color: white;
+  background-color: #14532d;
+
+  display: flex;
+  align-items: flex-end; /* push content lower */
+}
+
+
+/* ---------- BACKGROUND IMAGE ---------- */
+.hero-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;          /* key for responsive banner */
+  object-position: center;    /* desktop crop */
+  z-index: 0;
+}
+
+/* ---------- OVERLAY FOR READABILITY ---------- */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    rgba(0,0,0,0.45),
+    rgba(0,0,0,0.45)
+  );
+  z-index: 1;
+}
+
+/* ---------- CONTENT ---------- */
+.hero-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 4.5rem; /* heavier bottom padding */
+  text-align: center;
+}
+
+h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  margin-bottom: 1rem;
+}
+
+.subtitle {
+  font-size: 1.125rem;
+  max-width: 650px;
+  margin: 0 auto 2rem;
+  opacity: 0.95;
+}
+
+/* ---------- CTA BUTTONS ---------- */
+.hero-actions {
+  display: flex;
+  flex-direction: column; /* mobile stack */
+  gap: 1rem;
+  align-items: center;
+  padding-bottom: 0.5rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.75rem;
+  border-radius: 999px;
+  font-weight: 600;
+  text-decoration: none;
+  min-width: 220px;
+  text-align: center;
+}
+
+.btn.primary {
+  background-color: #ffffff;
+  color: #14532d;
+}
+
+.btn.primary:hover {
+  background-color: #f3f4f6;
+}
+
+.btn.secondary {
+  border: 2px solid white;
+  color: white;
+}
+
+.btn.secondary:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 768px) {
   .hero {
-    background-color: #14532d; /* CHANGE THIS to your brand colour */
-    color: white;
-    padding: 4rem 1.5rem;
+    height: 55vh;
+    min-height: 360px;
   }
 
-  .hero-inner {
-    max-width: 1100px;
-    margin: 0 auto;
-    text-align: center;
+  .hero-image {
+    object-position: center top; /* better mobile crop */
   }
+}
 
-  h1 {
-    font-size: clamp(2rem, 5vw, 3rem);
-    margin-bottom: 1rem;
-  }
-
-  .subtitle {
-    font-size: 1.125rem;
-    max-width: 650px;
-    margin: 0 auto 2rem;
-    opacity: 0.95;
-  }
-
+@media (min-width: 768px) {
   .hero-actions {
-    display: flex;
-    flex-direction: column; /* mobile stack */
-    gap: 1rem;
-    align-items: center;
+    flex-direction: row;
+    justify-content: center;
   }
 
   .btn {
-    display: inline-block;
-    padding: 0.75rem 1.75rem;
-    border-radius: 999px;
-    font-weight: 600;
-    text-decoration: none;
-    min-width: 220px;
-    text-align: center;
+    min-width: unset;
+    width: 100%;
+    max-width: 280px;
   }
-
-  .btn.primary {
-    background-color: #ffffff;
-    color: #14532d;
-  }
-
-  .btn.primary:hover {
-    background-color: #f3f4f6;
-  }
-
-  .btn.secondary {
-    border: 2px solid white;
-    color: white;
-  }
-
-  .btn.secondary:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-  }
-
-  @media (min-width: 768px) {
-    .hero-actions {
-      flex-direction: row; /* desktop inline */
-      justify-content: center;
-    }
-  }
+}
 </style>

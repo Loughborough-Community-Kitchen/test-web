@@ -15,6 +15,10 @@ import CTAStrip from "../components/CTAStrip.astro";
 <html lang="en">
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+
+	</head>
+<Header />
+
 <HeroBanner
   title="Good Food. Warm Welcome. Community First."
   subtitle="We provide welcoming community meals in Loughborough for anyone who needs one — no questions asked."
@@ -22,11 +26,12 @@ import CTAStrip from "../components/CTAStrip.astro";
   primaryCtaLink="#when-where"
   secondaryCtaText="Volunteer With Us"
   secondaryCtaLink="/volunteer"
+  imageSrc="/images/LCK\ Banner\ Hero.jpeg"
+  imageAlt="Community volunteers posing in the kitchen"
 />
-	</head>
 
 	<body>
-		<Header />
+		
 		<main>
 			<section class="features">
  				<h2>How You Can Get Involved</h2>
